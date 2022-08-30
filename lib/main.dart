@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
+
 }
 
 class MyApp extends StatelessWidget {
@@ -112,5 +113,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+}
+
+class Name{
+
+  late final name;
+
+   setRupName(){
+     name = "rup";
+     int x = 5;
+     x ??= 3;
+   }
+  setRupName1(){
+    name = "rup1";
   }
 }
