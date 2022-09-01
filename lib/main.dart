@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage( {super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -44,12 +44,25 @@ class MyHomePage extends StatefulWidget {
 
   final String title;
 
+  //createState(): When the Framework is instructed to build a StatefulWidget, it immediately calls createState()
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePage> createState(){
+    print("Lifecycle: createState");
+    return _MyHomePageState();
+  }
+
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+
+  /*
+    mounted is true: When createState creates your state class, a buildContext is assigned to that state.
+    BuildContext is, overly simplified, the place in the widget tree in which this widget is placed.
+    Here's a longer explanation. All widgets have a bool this.mounted property.
+    It is turned true when the buildContext is assigned. It is an error to call setState when a widget is unmounted.
+    mounted is false: The state object can never remount, and an error is thrown is setState is called.
+    */
 
   void _incrementCounter() {
     setState(() {
@@ -60,6 +73,11 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+  }
+  @override
+  void initState() {
+    super.initState();
+    print("Lifecycle: initState");
   }
 
   @override
@@ -114,6 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
 }
 
 class Name{
