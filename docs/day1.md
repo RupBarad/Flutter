@@ -1,5 +1,28 @@
-structure of the Flutter project application and its purpose
+Flutter:
 
+Flutter is an open source framework by Google for building
+beautiful,
+natively compiled,
+multi-platform applications from a single codebase.
+
+It is used to develop cross platform applications for Android, iOS, Linux, macOS, Windows, Google Fuchsia, and the web from a single codebase.
+
+It's
+Fast: Flutter code compiles to ARM or Intel machine code as well as JavaScript, for fast performance on any device.
+Productive: Build and iterate quickly with Hot Reload. Update code and see changes almost instantly, without losing state. and
+Flexible: Control every pixel to create customized, adaptive designs that look and feel great on any screen.
+
+Flutter is powered by Dart, a language optimized for fast apps on any platform
+
+OR
+
+Flutter is an open-source mobile app SDK created by Google.
+Flutter uses Dart language for creating mobile apps, that follow object-oriented concepts.
+Flutter has a very good reach among mobile app developers because of its striking features like cross-platform development, hot reload, hot restart, eye-catching UI, etc.
+
+In flutter, from text to padding, everything is a widget. Everything in Flutter is a widget.
+
+Structure of the Flutter project application and its purpose
 
 .idea: This folder is at the very top of the project structure, which holds the configuration for Android Studio. It doesn't matter because we are not going to work with Android Studio so that the content of this folder can be ignored.
 
