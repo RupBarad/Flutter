@@ -53,9 +53,18 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto-Regular.ttf
+
   # included with your application, so that you can use the icons in
+  assets:
+    - assets/
+    - assets/images/
+
   # the material Icons class.
   uses-material-design: true
 
