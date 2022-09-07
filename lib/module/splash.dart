@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_examples/module/auth/login.dart';
 import 'dart:async';
 
 import 'package:flutter_examples/module/home.dart';
@@ -26,6 +27,7 @@ class _MySplashPageState extends State<MySplashPage> {
             MaterialPageRoute(builder:
                 (context) =>
                 HomeScreen()
+                //LoginScreen()
             )
         )
     );
