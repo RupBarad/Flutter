@@ -1,0 +1,8 @@
+{
+    "language": "العربية",
+    "helloWorld": "!مرحبا بالعالم",
+    "@helloWorld": {
+        "description": "A programmer greeting"
+    },
+    "hello": "{username} مرحبا"
+}

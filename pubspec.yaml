@@ -29,9 +29,18 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  get: ^4.6.1 #Add this line
   flutter:
     sdk: flutter
 
+
+  #flutter_localizations: Hang tight! You’ll learn more about this in just a second.
+  flutter_localizations: # Add this line
+    sdk: flutter
+
+  #intl: Facilities for i18n and languages.dart such as message translation and date/number formatting and parsing.
+  #You’ll mostly deal with this package through the generated classes.
+  intl: ^0.17.0 # Add this line
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -68,6 +77,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  generate: true  #The generate: true line is necessary for the automatic code generation the localization packages provide for us.
+
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
@@ -98,3 +109,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+

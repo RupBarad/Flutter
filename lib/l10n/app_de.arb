@@ -1,0 +1,9 @@
+{
+    "language": "Deutsch",
+    "helloWorld": "Hallo Welt!",
+    "@helloWorld": {
+        "description": "A programmer greeting"
+    },
+    "hello": "Hallo {username}",
+    "pageSystemLocalizeTitle": "System localization"
+}

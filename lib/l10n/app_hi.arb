@@ -1,0 +1,8 @@
+{
+    "language": "मानक हिन्दी",
+    "helloWorld": "नमस्ते दुनिया!",
+    "@helloWorld": {
+        "description": "A programmer greeting"
+    },
+    "hello": "नमस्ते {username}"
+}
