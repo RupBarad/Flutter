@@ -16,5 +16,6 @@
          }
       }
     },
-    "pageSystemLocalizeTitle": "System localize"
+    "pageSystemLocalizeTitle": "System localize",
+     "pageAppLocalizeTitle": "App localize"
 }

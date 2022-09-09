@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_examples/module/auth/login.dart';
+import 'package:flutter_examples/module/localize/LocalizationAppPage.dart';
 import 'package:flutter_examples/module/localize/LocalizationSystemPage.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -54,7 +55,27 @@ class HomeScreen extends StatelessWidget {
                                 fontSize: 16,
                               ),
                             ),
+                          ),
+
+                          MaterialButton(
+                            minWidth: double.minPositive,
+                            height: 40,
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => LocalizationAppPage()));
+                            },
+                            color: Colors.white,
+                            /* shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(40)),*/
+                            child: Text(
+                              AppLocalizations.of(context)!.pageAppLocalizeTitle,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black,
+                                fontSize: 16,
+                              ),
+                            ),
                           )
+
                         ],
                       ),
                       Container(
