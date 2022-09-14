@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.deepPurple.shade100,
           primaryColor: Colors.deepPurpleAccent,
+          fontFamily: 'Roboto'
         ),
         locale: provider.locale,
         supportedLocales: L10n.all,

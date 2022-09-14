@@ -19,7 +19,7 @@ class LoginScreen extends StatelessWidget{
 
       body: Container(
         height: MediaQuery.of(context).size.height,
-        width: double.infinity,
+        width: double.maxFinite,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -29,9 +29,10 @@ class LoginScreen extends StatelessWidget{
 
                 Column(
                   children: [
-                    const Text ("Login", style: TextStyle(
+                     const Text ("Login", style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
+                        fontFamily: 'Poppins'
                     ),),
 
                     const SizedBox(height: 20,),
