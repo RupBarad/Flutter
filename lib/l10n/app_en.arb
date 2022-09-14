@@ -17,5 +17,12 @@
       }
     },
     "pageSystemLocalizeTitle": "System localize",
-     "pageAppLocalizeTitle": "App localize"
+     "pageAppLocalizeTitle": "App localize",
+
+   "home": "Hello World!",
+   "homeInfo": "Automatic identity verification which enable you to verify your identity",
+   "login": "Login",
+   "signUp": "Sign Up",
+   "translate": "Translate App"
+
 }

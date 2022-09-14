@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Splash Screen',
         theme: ThemeData(
-          scaffoldBackgroundColor: Colors.deepPurple.shade100,
+          scaffoldBackgroundColor: Colors.white,
           primaryColor: Colors.deepPurpleAccent,
           fontFamily: 'Roboto'
         ),

@@ -4,23 +4,19 @@ Constructors are used to create objects with pre-determined values for the prope
 Constructors come in three flavors:
 
 1. Default constructors or no-arg Constructor: The default constructors are those constructors that don’t have any parameters in it. Thus, if a constructor which don’t have any parameter then it will be a type of default constructor.
-class Gfg{
-    
-  // Creating Constructor
-  Gfg() {
-    print('This is the default constructor');
-  }
+class Gfg{ 
+   // Creating Constructor
+Gfg() {
+print('This is the default constructor');
+
 }
 
 2. Parameterized Constructor or standard : In Dart, you can also create a constructor having some parameters. These parameters will decide which constructor will be called and which will be not. Those constructors which accept parameters is known as parameterized constructor. 
 
 class Gfg{
-    
-  // Creating Parameterized Constructor
-  Gfg(int a) {
-      
-    print('This is the parameterized constructor');
-  }
+// Creating Parameterized Constructor
+Gfg(int a) {
+print('This is the parameterized constructor');
 }
 
 

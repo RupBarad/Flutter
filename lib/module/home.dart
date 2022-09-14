@@ -2,79 +2,86 @@ import 'package:flutter/material.dart';
 import 'package:flutter_examples/module/auth/login.dart';
 import 'package:flutter_examples/module/localize/LocalizationAppPage.dart';
 import 'package:flutter_examples/module/localize/LocalizationSystemPage.dart';
+import 'package:flutter_examples/widget/button_default.dart';
+import 'package:flutter_examples/widget/custom_text_style.dart';
+import 'package:flutter_examples/widget/heading1_text.dart';
+import 'package:flutter_examples/widget/button_round.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         //appBar: AppBar(title:Text("Second screen")),
         body: SafeArea(
             child: Container(
-                width: double.infinity,
+                width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisSize: MainAxisSize.max,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text(
-                            AppLocalizations.of(context)!.helloWorld,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 40),
-                          ),
                           const SizedBox(
-                            height: 30,
+                            height: 20,
+                          ),
+                          //Heading1Text.withText(AppLocalizations.of(context)!.helloWorld),
+                          Heading1Text.withCallback(
+                              AppLocalizations.of(context)!.helloWorld, () {
+                            print("Click hello word");
+                          }),
+                          const SizedBox(
+                            height: 10,
                           ),
                           Text(
-                            "Automatic identity verification which enable you to verify your identity",
+                            AppLocalizations.of(context)!.homeInfo,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.grey[700], fontSize: 15),
+                            style: CustomTextStyle.nameOfTextStyle,
                           ),
                           const SizedBox(
                             height: 30,
                           ),
-                          MaterialButton(
-                            minWidth: double.minPositive,
-                            height: 40,
-                            onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => LocalizationSystemPage()));
-                            },
-                            color: Colors.white,
-                           /* shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(40)),*/
-                            child: Text(
-                              AppLocalizations.of(context)!.pageSystemLocalizeTitle,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black,
-                                fontSize: 16,
-                              ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                              AppLocalizations.of(context)!.translate,
+                              textAlign: TextAlign.center,
+                              style: CustomTextStyle.labelOfTextStyle,
                             ),
-                          ),
-
-                          MaterialButton(
-                            minWidth: double.minPositive,
-                            height: 40,
-                            onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => LocalizationAppPage()));
-                            },
-                            color: Colors.white,
-                            /* shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(40)),*/
-                            child: Text(
-                              AppLocalizations.of(context)!.pageAppLocalizeTitle,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black,
-                                fontSize: 16,
+                              const SizedBox(
+                                width: 30,
                               ),
-                            ),
+                              ButtonDefault.withCallback(
+                                  AppLocalizations.of(context)!.pageSystemLocalizeTitle, () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            LocalizationSystemPage()));
+                              }),
+                              ButtonDefault.withCallback(
+                                  AppLocalizations.of(context)!.pageAppLocalizeTitle, () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LocalizationAppPage()));
+                              })
+                            ],
                           )
+                          ,
+
 
                         ],
                       ),
@@ -87,44 +94,32 @@ class HomeScreen extends StatelessWidget {
                                 image:
                                     AssetImage('assets/images/ac_logo.png'))),
                       ),
-                      MaterialButton(
-                        minWidth: double.infinity,
-                        height: 60,
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => LoginScreen()));
+                      /*CustomButton(
+                        onTap: () {
+                          //print('custom button click');
+                          setState(() {
+                            weight = weight - 1;
+                          });
                         },
-                        color: Colors.indigoAccent[400],
-                        shape: RoundedRectangleBorder(
-                            side: const BorderSide(
-                              color: Colors.black,
-                            ),
-                            borderRadius: BorderRadius.circular(40)),
-                        child: const Text(
-                          "Login",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                              color: Colors.white70),
-                        ),
-                      ),
-                      MaterialButton(
-                        minWidth: double.infinity,
-                        height: 60,
-                        onPressed: () {},
-                        color: Colors.redAccent,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(40)),
-                        child: const Text(
-                          "Sign UP",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
+                        icon: Icons.arrow_downward,
+                      ),*/
+                      //Login button
+                      ButtonRound.withCallback(
+                          AppLocalizations.of(context)!.login, () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginScreen()));
+                      }),
+                      //Sign up
+                      ButtonRound.withCallback(
+                          AppLocalizations.of(context)!.signUp, () {
+                        print("Sign up button click");
+                        /*Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginScreen()));*/
+                      }),
                     ]))));
   }
 }
