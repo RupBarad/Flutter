@@ -18,11 +18,10 @@ class _HomeState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         //appBar: AppBar(title:Text("Second screen")),
         body: SafeArea(
             child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
                 child: Column(
@@ -63,21 +62,24 @@ class _HomeState extends State<HomeScreen> {
                               const SizedBox(
                                 width: 30,
                               ),
-                              ButtonDefault.withCallback(
-                                  AppLocalizations.of(context)!.pageSystemLocalizeTitle, () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            LocalizationSystemPage()));
-                              }),
-                              ButtonDefault.withCallback(
-                                  AppLocalizations.of(context)!.pageAppLocalizeTitle, () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => LocalizationAppPage()));
-                              })
+                              Column(children: [
+                                ButtonDefault.withCallback(
+                                    AppLocalizations.of(context)!.pageSystemLocalizeTitle, () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              LocalizationSystemPage()));
+                                }),
+                                ButtonDefault.withCallback(
+                                    AppLocalizations.of(context)!.pageAppLocalizeTitle, () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => LocalizationAppPage()));
+                                })
+                              ]),
+
                             ],
                           )
                           ,

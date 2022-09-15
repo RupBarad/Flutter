@@ -1,21 +1,21 @@
 
 import 'package:flutter/material.dart';
 
-class Heading1Text extends StatelessWidget {
+class Heading2Text extends StatelessWidget {
   String text = "";
-  double size = 40;
+  double size = 30;
   FontWeight fontWeight = FontWeight.bold;
   Color color = Colors.black;
   double wordSpacing = 5;
   VoidCallback? onClick = null;
 
-   Heading1Text({
+   Heading2Text({
     required this.text, required this.size, required this.fontWeight, required this.color, required this.wordSpacing, required this.onClick,
   });
 
-  Heading1Text.withText(this.text){
+  Heading2Text.withText(this.text){
   }
-  Heading1Text.withCallback(this.text, this.onClick);
+  Heading2Text.withCallback(this.text, this.onClick);
 
   @override
   Widget build(BuildContext context) {

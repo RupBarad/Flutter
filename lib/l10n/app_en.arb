@@ -1,28 +1,33 @@
 {
-    "language": "English",
-    "@language":{
-      "description": "The current Language"
-    },
-    "helloWorld": "Hello World!",
-    "@helloWorld": {
-      "description": "A programmer greeting"
-    },
-    "hello": "Hello {username}",
-    "@hello": {
-      "description": "A welcome message",
-      "placeholders": {
-         "username": {
-           "type": "String"
-         }
+  "language": "English",
+  "@language": {
+    "description": "The current Language"
+  },
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "A programmer greeting"
+  },
+  "hello": "Hello {username}",
+  "@hello": {
+    "description": "A welcome message",
+    "placeholders": {
+      "username": {
+        "type": "String"
       }
-    },
-    "pageSystemLocalizeTitle": "System localize",
-     "pageAppLocalizeTitle": "App localize",
-
-   "home": "Hello World!",
-   "homeInfo": "Automatic identity verification which enable you to verify your identity",
-   "login": "Login",
-   "signUp": "Sign Up",
-   "translate": "Translate App"
-
+    }
+  },
+  "pageSystemLocalizeTitle": "System localize",
+  "pageAppLocalizeTitle": "App localize",
+  "home": "Hello World!",
+  "homeInfo": "Automatic identity verification which enable you to verify your identity",
+  "login": "Login",
+  "signUp": "Sign Up",
+  "translate": "Translate App",
+  "loginTextLogin": "Login",
+  "loginTextInfo": "Welcome back! Login with your credentials",
+  "loginTextEmail": "Email",
+  "loginTextPassword": "Password",
+  "loginBtn": "Login",
+  "loginTextNotAccount": "Don't have an account?",
+  "loginTextSignUp": "Sign Up"
 }
