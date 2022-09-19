@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_examples/remote/login.dart';
 import 'package:flutter_examples/widget/custom_text_style.dart';
+import 'package:http/http.dart' as http;
 
 import '../../widget/button_round.dart';
 import '../../widget/custom_text_form.dart';
@@ -21,17 +23,16 @@ class _LoginState extends State<LoginScreen> {
   //2. simple update value and store
 
   //But here, we will use 1. It's standard method
+  String textEmail = "";
+  final emailController = TextEditingController();
 
-  String textEmail = '';
-  final textFieldEmailValueHolder = TextEditingController();
-
-  String textPassword = '';
-  final textFieldPasswordValueHolder = TextEditingController();
+  String textPassword = "";
+  final passwordController = TextEditingController();
 
   getTextInputData(){
     setState(() {
-      textEmail = textFieldEmailValueHolder.text;
-      textPassword = textFieldPasswordValueHolder.text;
+      textEmail = emailController.text;
+      textPassword = passwordController.text;
     });
   }
 
@@ -80,11 +81,11 @@ class _LoginState extends State<LoginScreen> {
                   child: Column(
                     children: [
                       CustomWidgets.textField(AppLocalizations.of(context)!.loginTextEmail,
-                          textController: textFieldPasswordValueHolder,
+                          textController: passwordController,
                           textInputType: TextInputType.emailAddress ),
                       CustomWidgets.textField(AppLocalizations.of(context)!.loginTextPassword,
                           isPassword: true,
-                          textController: textFieldEmailValueHolder
+                          textController: emailController
                       ),
                       /*makeInput(label: AppLocalizations.of(context)!.loginTextEmail),
                       makeInput(label: AppLocalizations.of(context)!.loginTextPassword,obsureText: true),
@@ -94,6 +95,8 @@ class _LoginState extends State<LoginScreen> {
                   ),
                 ),
 
+
+                const SizedBox(height: 20),
 
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -110,8 +113,25 @@ class _LoginState extends State<LoginScreen> {
                     ),*/
                     child: ButtonRound.withCallback(
                         AppLocalizations.of(context)!.login, () {
-                      getTextInputData();
-                      print("Sign up clicked Email: $textEmail Password: $textPassword");
+
+                          print("Sign up clicked Email: $textEmail Password: $textPassword");
+                          //Get text input data
+                          getTextInputData();
+
+                          //Set validation
+
+                          //check internet
+
+                          LoginAPI().login("rup.barad@atharvasystem.com", "12345678", () {
+                            print("Login API called");
+
+                            //Store login credentials to check app login or not
+
+                            //Close current screen and move on dashboard page
+
+
+                      });
+
                     }),
                   ),
                 ),

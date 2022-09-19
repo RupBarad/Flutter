@@ -20,7 +20,8 @@ class _HomeState extends State<HomeScreen> {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         //appBar: AppBar(title:Text("Second screen")),
-        body: SafeArea(
+        body: SingleChildScrollView(
+        child: SafeArea(
             child: Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
@@ -122,6 +123,8 @@ class _HomeState extends State<HomeScreen> {
                                 MaterialPageRoute(
                                     builder: (context) => LoginScreen()));*/
                       }),
-                    ]))));
+                    ]))),
+    )
+    );
   }
 }

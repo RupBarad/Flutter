@@ -11,24 +11,25 @@ class CustomWidgets {
         TextInputType textInputType = TextInputType.text,
         var cornerRadius = 0.0}) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 2),
+      margin: const EdgeInsets.symmetric(vertical: 2),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Text(
             title,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
           ),
-          SizedBox(
+          const SizedBox(
             height: 2,
           ),
           TextFormField(
             maxLines: lines,
             controller: textController,
             maxLength: length,
+            textInputAction:TextInputAction.next,
             inputFormatters: [
               LengthLimitingTextInputFormatter(length),
             ],
@@ -41,7 +42,7 @@ class CustomWidgets {
                     : OutlineInputBorder(
                   borderRadius: BorderRadius.circular(cornerRadius),
                 ),
-                fillColor: Color(0xfff3f3f4),
+                fillColor: const Color(0xfff3f3f4),
                 filled: true),
           )
         ],
