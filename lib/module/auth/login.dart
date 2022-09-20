@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_examples/remote/login.dart';
+import 'package:flutter_examples/utils/constant.dart';
 import 'package:flutter_examples/widget/custom_text_style.dart';
 import 'package:http/http.dart' as http;
 
@@ -8,7 +9,9 @@ import '../../widget/custom_text_form.dart';
 import '../../widget/heading2_text.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class LoginScreen extends StatefulWidget {
+import '../base/base.dart';
+
+class LoginScreen extends Base {
 
   @override
   _LoginState createState() => _LoginState();
@@ -29,6 +32,8 @@ class _LoginState extends State<LoginScreen> {
   String textPassword = "";
   final passwordController = TextEditingController();
 
+  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+
   getTextInputData(){
     setState(() {
       textEmail = emailController.text;
@@ -38,7 +43,10 @@ class _LoginState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return GestureDetector(
+        onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+    child:
+      Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -52,6 +60,7 @@ class _LoginState extends State<LoginScreen> {
       ),
     body: SingleChildScrollView(
       child: Container(
+        margin: const EdgeInsets.only(left: 20.0, right: 20.0),
         width: double.maxFinite,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -78,21 +87,24 @@ class _LoginState extends State<LoginScreen> {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 40
                   ),
-                  child: Column(
+                  child: Form(
+                    key: _formkey,
+                    child: Column(
                     children: [
                       CustomWidgets.textField(AppLocalizations.of(context)!.loginTextEmail,
                           textController: passwordController,
-                          textInputType: TextInputType.emailAddress ),
+                          textInputType: TextInputType.emailAddress, validationName: FORM_FIELD_EMAIL ),
                       CustomWidgets.textField(AppLocalizations.of(context)!.loginTextPassword,
                           isPassword: true,
-                          textController: emailController
+                          textController: emailController,
+                          validationName: FORM_FIELD_PASSWORD
                       ),
                       /*makeInput(label: AppLocalizations.of(context)!.loginTextEmail),
                       makeInput(label: AppLocalizations.of(context)!.loginTextPassword,obsureText: true),
                       CustomWidgets.textField('Corner Radius', cornerRadius: 10.0),
                       CustomWidgets.textField(AppLocalizations.of(context)!.loginTextPassword, isPassword: true),*/
                     ],
-                  ),
+                  )),
                 ),
 
 
@@ -119,18 +131,19 @@ class _LoginState extends State<LoginScreen> {
                           getTextInputData();
 
                           //Set validation
-
+                          if (_formkey.currentState!.validate()) {
                           //check internet
-
-                          LoginAPI().login("rup.barad@atharvasystem.com", "12345678", () {
                             print("Login API called");
+                          /*LoginAPI().login(textEmail, textPassword, () {
+                            print("Login API called");
+                          }*/
 
                             //Store login credentials to check app login or not
 
                             //Close current screen and move on dashboard page
 
 
-                      });
+                      };
 
                     }),
                   ),
@@ -163,8 +176,9 @@ class _LoginState extends State<LoginScreen> {
       ),
       //Body end
     )
-    );
+    ));
   }
+
 
 }
 

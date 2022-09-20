@@ -25,4 +25,18 @@ class CustomTextStyle {
       fontFamily: 'Poppins'
   );
 
+  static TextStyle textFieldLabelTextStyle = const TextStyle(
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+      fontSize: 15,
+      fontFamily: 'Poppins'
+  );
+
+  static TextStyle textFieldTextStyle = const TextStyle(
+      fontWeight: FontWeight.normal,
+      color: Colors.black,
+      fontSize: 15,
+      fontFamily: 'Poppins'
+  );
+
 }
