@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_examples/data/local/sharedpreference/sharedpreference_constant.dart';
+import 'package:flutter_examples/data/local/sharedpreference/sharedpreference_helper.dart';
 import 'package:http/http.dart';
 
 class LoginAPI {
@@ -29,6 +31,14 @@ class LoginAPI {
         print('Login successfully');
 
         //Store Login details
+        //SAVE DATA LOCALLY
+        /*SharedPreferenceHelper().saveStringPref(
+            SharedPreferenceConstants().USER_DATA, data);
+        SharedPreferenceHelper().saveBooleanPref(
+            SharedPreferenceConstants().IS_LOGIN_DONE, true);
+        bool isLoginSaved = await SharedPreferenceHelper()
+            .getBooleanPref(SharedPreferenceConstants().IS_LOGIN_DONE);*/
+
         onClick?.call();
       } else {
         print("failed ${response.statusCode}");

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_examples/module/auth/login.dart';
+import 'package:flutter_examples/ui/module/auth/login.dart';
 import 'dart:async';
 
-import 'package:flutter_examples/module/home.dart';
+import 'package:flutter_examples/ui/module/home.dart';
 
 class MySplashPage extends StatefulWidget {
 

@@ -3,7 +3,7 @@ import 'package:flutter_examples/l10n/l10n.dart';
 import 'package:flutter_examples/provider/locale_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../utils/app_strings.dart';
+import '../../utils/app_strings.dart';
 
 class LanguageWidget extends StatelessWidget {
   @override

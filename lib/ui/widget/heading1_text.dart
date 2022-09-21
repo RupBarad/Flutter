@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../utils/app_strings.dart';
+import '../../utils/app_strings.dart';
 
 class Heading1Text extends StatelessWidget {
   String text = "";

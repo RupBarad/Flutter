@@ -1,30 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_examples/main.dart';
-import 'package:flutter_examples/widget/language_picker_widget.dart';
+import 'package:flutter_examples/ui/widget/language_picker_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class LocalizationSystemPage extends StatefulWidget {
+class LocalizationAppPage extends StatefulWidget {
   @override
-  _LocalizationSystemPageState createState() => _LocalizationSystemPageState();
+  _LocalizationAppPageState createState() => _LocalizationAppPageState();
 }
 
-class _LocalizationSystemPageState extends State<LocalizationSystemPage> {
-  @override
-  void initState() {
-    super.initState();
-
-    /*WidgetsBinding.instance.addPostFrameCallback((_) {
-      final provider = Provider.of<LocaleProvider>(context, listen: false);
-
-      provider.clearLocale();
-    });*/
-  }
-
+class _LocalizationAppPageState extends State<LocalizationAppPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
-      title: Text(AppLocalizations.of(context)!.pageSystemLocalizeTitle),
+      title: Text(AppLocalizations.of(context)!.pageAppLocalizeTitle),
       centerTitle: true,
+      actions: [
+        LanguagePickerWidget(),
+        const SizedBox(width: 20),
+      ],
     ),
     body: Center(
       child: Column(
@@ -38,7 +30,7 @@ class _LocalizationSystemPageState extends State<LocalizationSystemPage> {
           ),
           const SizedBox(height: 8),
           Text(
-            AppLocalizations.of(context)!.helloWorld,
+            AppLocalizations.of(context)!.hello('John'),
             style: TextStyle(fontSize: 36),
           ),
         ],

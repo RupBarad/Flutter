@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_examples/remote/login.dart';
-import 'package:flutter_examples/remote/network_connectivity.dart';
+import 'package:flutter_examples/data/remote/login.dart';
+import 'package:flutter_examples/utils/network/network_connectivity.dart';
 import 'package:flutter_examples/utils/constant.dart';
 import 'package:flutter_examples/utils/custom_text_style.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../utils/util.dart';
+import '../../../../utils/util.dart';
 import '../../widget/button_round.dart';
 import '../../widget/custom_text_form.dart';
 import '../../widget/heading2_text.dart';
@@ -179,6 +179,8 @@ class _LoginState extends State<LoginScreen> {
           LoginAPI().login(textEmail, textPassword, () {
                             print("Login API called");
                           });
+
+
 
           //Store login credentials to check app login or not
 

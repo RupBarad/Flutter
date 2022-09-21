@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_examples/utils/app_dimens.dart';
 
-import '../utils/app_colors.dart';
-import '../utils/app_strings.dart';
-import '../utils/constant.dart';
+import '../../utils/app_colors.dart';
+import '../../utils/app_strings.dart';
+import '../../utils/constant.dart';
 
 class ButtonRound extends StatelessWidget {
   String text = "";
