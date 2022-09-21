@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_examples/utils/constant.dart';
-import 'package:flutter_examples/widget/custom_text_style.dart';
+import 'package:flutter_examples/utils/custom_text_style.dart';
 
 class CustomWidgets {
   static Widget textField(String title,

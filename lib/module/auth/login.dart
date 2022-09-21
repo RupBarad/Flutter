@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_examples/remote/login.dart';
 import 'package:flutter_examples/utils/constant.dart';
-import 'package:flutter_examples/widget/custom_text_style.dart';
+import 'package:flutter_examples/utils/custom_text_style.dart';
 import 'package:http/http.dart' as http;
 
 import '../../widget/button_round.dart';

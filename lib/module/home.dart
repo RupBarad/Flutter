@@ -3,7 +3,7 @@ import 'package:flutter_examples/module/auth/login.dart';
 import 'package:flutter_examples/module/localize/LocalizationAppPage.dart';
 import 'package:flutter_examples/module/localize/LocalizationSystemPage.dart';
 import 'package:flutter_examples/widget/button_default.dart';
-import 'package:flutter_examples/widget/custom_text_style.dart';
+import 'package:flutter_examples/utils/custom_text_style.dart';
 import 'package:flutter_examples/widget/heading1_text.dart';
 import 'package:flutter_examples/widget/button_round.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'app_colors.dart';
+import 'app_dimens.dart';
+import 'app_strings.dart';
+
 class CustomTextStyle {
 
   //Home description
@@ -7,7 +11,7 @@ class CustomTextStyle {
     fontSize: 15,
     color: Colors.grey[700],
     fontWeight: FontWeight.normal,
-      fontFamily: 'Poppins'
+      fontFamily: appFontFamily
   );
 
   //Home - translate
@@ -15,28 +19,28 @@ class CustomTextStyle {
       fontSize: 15,
       color: Colors.black,
       fontWeight: FontWeight.normal,
-      fontFamily: 'Poppins'
+      fontFamily: appFontFamily
   );
 
   static TextStyle labelBOfTextStyle = const TextStyle(
       fontSize: 15,
       color: Colors.black,
       fontWeight: FontWeight.bold,
-      fontFamily: 'Poppins'
+      fontFamily: appFontFamily
   );
 
   static TextStyle textFieldLabelTextStyle = const TextStyle(
       fontWeight: FontWeight.bold,
-      color: Colors.black,
-      fontSize: 15,
-      fontFamily: 'Poppins'
+      color: textFormFieldLabel,
+      fontSize: formFieldTextLabel,
+      fontFamily: appFontFamily
   );
 
   static TextStyle textFieldTextStyle = const TextStyle(
       fontWeight: FontWeight.normal,
-      color: Colors.black,
-      fontSize: 15,
-      fontFamily: 'Poppins'
+      color: textFormFieldText,
+      fontSize: formFieldText,
+      fontFamily: appFontFamily
   );
 
 }

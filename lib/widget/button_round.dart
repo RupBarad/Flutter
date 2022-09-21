@@ -1,12 +1,17 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_examples/utils/app_dimens.dart';
+
+import '../utils/app_colors.dart';
+import '../utils/app_strings.dart';
+import '../utils/constant.dart';
 
 class ButtonRound extends StatelessWidget {
   String text = "";
-  double fontSize = 16;
-  FontWeight fontWeight = FontWeight.w600;
-  Color? buttonColor = Colors.red[300];
-  Color? buttonTextColor = Colors.white;
+  double fontSize = buttonTextSize;
+  FontWeight fontWeight = roundButtonTextWeight;
+  Color? buttonColor = roundButtonBackground;
+  Color? buttonTextColor = roundButtonText;
   double wordSpacing = 5;
   VoidCallback? onClick = null;
 
@@ -44,7 +49,8 @@ class ButtonRound extends StatelessWidget {
           style: TextStyle(
               fontWeight: fontWeight,
               fontSize: fontSize,
-              color: buttonTextColor),
+              color: buttonTextColor,
+              fontFamily: appFontFamily),
         ),
       )
 

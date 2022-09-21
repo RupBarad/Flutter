@@ -3,6 +3,8 @@ import 'package:flutter_examples/l10n/l10n.dart';
 import 'package:flutter_examples/provider/locale_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../utils/app_strings.dart';
+
 class LanguageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,7 @@ class LanguagePickerWidget extends StatelessWidget {
               child: Center(
                 child: Text(
                   flag,
-                  style: TextStyle(fontSize: 32),
+                  style: TextStyle(fontSize: 32, fontFamily: appFontFamily),
                 ),
               ),
               value: locale,

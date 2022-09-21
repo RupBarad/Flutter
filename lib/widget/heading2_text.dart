@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../utils/app_strings.dart';
+
 class Heading2Text extends StatelessWidget {
   String text = "";
   double size = 30;
@@ -29,7 +31,7 @@ class Heading2Text extends StatelessWidget {
           fontWeight: fontWeight,
           color: color,
           wordSpacing: wordSpacing,
-            fontFamily: 'Poppins',
+          fontFamily: appFontFamily,
         ),
       )
           : TextButton(
