@@ -1,16 +1,8 @@
 
 
-//DISPLAY SNACKBAR
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
-void showInSnackBar(String value, BuildContext context) {
-  ScaffoldMessenger.of(context).showSnackBar(new SnackBar(content: new Text(value)));
-  //_scaffoldKey.currentState!.showSnackBar();
-}
-
-/*
 //CHECKS NETWORK AVAILABLE OR NOT
+import 'package:connectivity_plus/connectivity_plus.dart';
+
 Future<bool> isNetworkAvailable() async {
   var connectivityResult = await (Connectivity().checkConnectivity());
   if (connectivityResult == ConnectivityResult.mobile) {
@@ -20,6 +12,3 @@ Future<bool> isNetworkAvailable() async {
   }
   return false;
 }
-*/
-
-

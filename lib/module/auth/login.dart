@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_examples/remote/login.dart';
+import 'package:flutter_examples/remote/network_connectivity.dart';
 import 'package:flutter_examples/utils/constant.dart';
 import 'package:flutter_examples/utils/custom_text_style.dart';
-import 'package:http/http.dart' as http;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../utils/util.dart';
 import '../../widget/button_round.dart';
 import '../../widget/custom_text_form.dart';
 import '../../widget/heading2_text.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 import '../base/base.dart';
 
 class LoginScreen extends Base {
@@ -126,24 +126,7 @@ class _LoginState extends State<LoginScreen> {
                     child: ButtonRound.withCallback(
                         AppLocalizations.of(context)!.login, () {
 
-                          print("Sign up clicked Email: $textEmail Password: $textPassword");
-                          //Get text input data
-                          getTextInputData();
-
-                          //Set validation
-                          if (_formkey.currentState!.validate()) {
-                          //check internet
-                            print("Login API called");
-                          /*LoginAPI().login(textEmail, textPassword, () {
-                            print("Login API called");
-                          }*/
-
-                            //Store login credentials to check app login or not
-
-                            //Close current screen and move on dashboard page
-
-
-                      };
+                        loginInApp(context);
 
                     }),
                   ),
@@ -179,7 +162,32 @@ class _LoginState extends State<LoginScreen> {
     ));
   }
 
+  loginInApp(BuildContext context) {
+    print("Sign up clicked Email: $textEmail Password: $textPassword");
+    //Get text input data
+    getTextInputData();
 
+    isNetworkAvailable().then((internet) async {
+      if (internet == null || internet == false) {
+        // No-Internet Case
+        showInSnackBar(AppLocalizations.of(context)!.internetConnectionMsg, context );
+      } else {
+        //Set validation
+        if (_formkey.currentState!.validate()) {
+          //check internet
+          print("Login API called");
+          LoginAPI().login(textEmail, textPassword, () {
+                            print("Login API called");
+                          });
+
+          //Store login credentials to check app login or not
+
+          //Close current screen and move on dashboard page
+        }
+      }
+    });
+
+  }
 }
 
 /*

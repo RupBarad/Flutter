@@ -29,5 +29,6 @@
   "loginTextPassword": "Password",
   "loginBtn": "Login",
   "loginTextNotAccount": "Don't have an account?",
-  "loginTextSignUp": "Sign Up"
+  "loginTextSignUp": "Sign Up",
+  "internetConnectionMsg": "Please check your internet connection"
 }

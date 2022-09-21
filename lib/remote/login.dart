@@ -27,6 +27,8 @@ class LoginAPI {
         var data = jsonDecode(response.body.toString());
         print(data);
         print('Login successfully');
+
+        //Store Login details
         onClick?.call();
       } else {
         print("failed ${response.statusCode}");
