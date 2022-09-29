@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_examples/ui/module/auth/login.dart';
-import 'dart:async';
+import 'package:flutter_examples/data/local/sharedpreference/sharedpreference_constant.dart';
+import 'package:flutter_examples/data/local/sharedpreference/sharedpreference_helper.dart';
 
-import 'package:flutter_examples/ui/module/home.dart';
+import 'dart:async';
+import '../../utils/navigation.dart';
 
 class MySplashPage extends StatefulWidget {
 
@@ -16,22 +17,41 @@ class MySplashPage extends StatefulWidget {
 }
 
 class _MySplashPageState extends State<MySplashPage> {
+   bool isUserLogin = false;
+
+  userLogin() async{
+    //isUserLogin =
+        SharedPreferenceHelper().getBooleanPref(SharedPreferenceConstants.IS_LOGIN_DONE).then((val)
+    => {
+          isUserLogin = val,
+          print(val),
+    });
+  }
 
   @override
   void initState() {
     super.initState();
     print("Lifecycle: initState");
-    //Timer of duration 4 seconds(Timer function has 2 arguments,first is Duration and second is action to be performed).
-    Timer(Duration(seconds: 4),
-            ()=>Navigator.pushReplacement(context,
-            MaterialPageRoute(builder:
-                (context) =>
-                HomeScreen()
-                //LoginScreen()
-            )
-        )
-    );
+    startTime();
+  }
 
+  startTime() async {
+    //Read and get value from shared preference
+    userLogin();
+    print("Lifecycle: initState isUserLogin $isUserLogin");
+
+    //Timer
+    var duration = new Duration(seconds: 4);
+    return new Timer(duration, route);
+  }
+
+  route() {
+    print("Lifecycle: initState route isUserLogin $isUserLogin");
+    if(isUserLogin) {
+      openTabScreen(context);
+    }else{
+      openHomeScreen(context);
+    }
   }
 
   @override

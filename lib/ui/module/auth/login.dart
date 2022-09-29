@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_examples/data/remote/login.dart';
+import 'package:flutter_examples/ui/module/home/bottom_tab.dart';
+import 'package:flutter_examples/utils/navigation.dart';
 import 'package:flutter_examples/utils/network/network_connectivity.dart';
 import 'package:flutter_examples/utils/constant.dart';
 import 'package:flutter_examples/utils/custom_text_style.dart';
@@ -26,25 +28,32 @@ class _LoginState extends State<LoginScreen> {
   //2. simple update value and store
 
   //But here, we will use 1. It's standard method
-  String textEmail = "";
+  String textEmail = '';
   final emailController = TextEditingController();
 
-  String textPassword = "";
+  String textPassword = '';
   final passwordController = TextEditingController();
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
   getTextInputData(){
+    print("get text input data");
     setState(() {
       textEmail = emailController.text;
       textPassword = passwordController.text;
+      print("get text input data $textEmail and $textPassword");
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+        onTap: () {
+          FocusScopeNode currentFocus = FocusScope.of(context);
+          if (!currentFocus.hasPrimaryFocus) {
+            currentFocus.unfocus();
+          }
+        },
     child:
       Scaffold(
       resizeToAvoidBottomInset: false,
@@ -92,11 +101,11 @@ class _LoginState extends State<LoginScreen> {
                     child: Column(
                     children: [
                       CustomWidgets.textField(AppLocalizations.of(context)!.loginTextEmail,
-                          textController: passwordController,
+                          textController: emailController,
                           textInputType: TextInputType.emailAddress, validationName: FORM_FIELD_EMAIL ),
                       CustomWidgets.textField(AppLocalizations.of(context)!.loginTextPassword,
                           isPassword: true,
-                          textController: emailController,
+                          textController: passwordController,
                           validationName: FORM_FIELD_PASSWORD
                       ),
                       /*makeInput(label: AppLocalizations.of(context)!.loginTextEmail),
@@ -163,29 +172,36 @@ class _LoginState extends State<LoginScreen> {
   }
 
   loginInApp(BuildContext context) {
-    print("Sign up clicked Email: $textEmail Password: $textPassword");
+    hideKeyboard();
     //Get text input data
     getTextInputData();
-
+    print("Sign up clicked Email: $textEmail Password: $textPassword");
     isNetworkAvailable().then((internet) async {
       if (internet == null || internet == false) {
         // No-Internet Case
         showInSnackBar(AppLocalizations.of(context)!.internetConnectionMsg, context );
       } else {
+
         //Set validation
         if (_formkey.currentState!.validate()) {
           //check internet
           print("Login API called");
-          LoginAPI().login(textEmail, textPassword, () {
-                            print("Login API called");
-                          });
-
-
-
+          //Call api and
           //Store login credentials to check app login or not
-
+          LoginAPI().login(context, textEmail, textPassword, ()
+          {
+            print("Login API called");
+            //Move on tab screen
+            /*Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        TabScreen()));*/
+            openTabScreen(context);
+          });
           //Close current screen and move on dashboard page
         }
+
       }
     });
 

@@ -1,4 +1,5 @@
 {
+  "appName": "Flutter",
   "language": "English",
   "@language": {
     "description": "The current Language"
@@ -30,5 +31,6 @@
   "loginBtn": "Login",
   "loginTextNotAccount": "Don't have an account?",
   "loginTextSignUp": "Sign Up",
-  "internetConnectionMsg": "Please check your internet connection"
+  "internetConnectionMsg": "Please check your internet connection",
+  "btnOk": "Okay"
 }

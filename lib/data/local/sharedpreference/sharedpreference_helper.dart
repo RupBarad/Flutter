@@ -40,7 +40,14 @@ class SharedPreferenceHelper {
 
   getBooleanPref(String prefKey) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getBool(prefKey);
+    bool checkValue = prefs.containsKey(prefKey);
+    if(checkValue) {
+      bool boolValue = prefs.getBool(prefKey) ?? false;
+      return boolValue;
+    }else{
+      return false;
+    }
+
   }
 
   clearPrefData() async {
