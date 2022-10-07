@@ -32,5 +32,16 @@
   "loginTextNotAccount": "Don't have an account?",
   "loginTextSignUp": "Sign Up",
   "internetConnectionMsg": "Please check your internet connection",
-  "btnOk": "Okay"
+  "btnOk": "Okay",
+  "tab1": "Tab 1",
+  "tab2": "Tab 2",
+  "tab3": "Tab 3",
+  "tab4": "Tab 4",
+  "tab1Content": "Home screen page 1",
+  "tab2Content": "Home screen page 2",
+  "tab3Content": "Home screen page 3",
+  "tab4Content": "Home screen page 4",
+  "navigationExample1" : "B Navigation 1",
+  "navigationExample2" : "B Navigation 2",
+  "navigationExample3" : "B Navigation 3"
 }

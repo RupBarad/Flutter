@@ -6,9 +6,12 @@ import 'package:flutter_examples/ui/widget/button_default.dart';
 import 'package:flutter_examples/utils/custom_text_style.dart';
 import 'package:flutter_examples/ui/widget/heading1_text.dart';
 import 'package:flutter_examples/ui/widget/button_round.dart';
+import 'package:flutter_examples/utils/navigation.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TabScreen extends StatefulWidget {
+  //TabScreen ({required Key key}) : super(key: key);
+
   @override
   _TabState createState() => _TabState();
 }
@@ -38,7 +41,7 @@ class _TabState extends State<TabScreen> {
                           //Heading1Text.withText(AppLocalizations.of(context)!.helloWorld),
                           Heading1Text.withCallback(
                               AppLocalizations.of(context)!.helloWorld, () {
-                            print("Click hello word");
+                            print("Click navigation Example 1");
                           }),
                           const SizedBox(
                             height: 10,
@@ -54,8 +57,33 @@ class _TabState extends State<TabScreen> {
                         ],
                       ),
 
+                      Column(children: [
+                        ButtonDefault.withCallback(
+                            AppLocalizations.of(context)!.navigationExample1, () {
+                            openNavigation1Screen(context);
+                        }),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        ButtonDefault.withCallback(
+                            AppLocalizations.of(context)!.navigationExample2, () {
+                            openNavigation2Screen(context);
+                        }),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        ButtonDefault.withCallback(
+                            AppLocalizations.of(context)!.navigationExample3, () {
+                          openNavigation3Screen(context);
+                        }),
+                      ]),
+
+
                     ]))),
     )
     );
   }
 }
+
+
+
